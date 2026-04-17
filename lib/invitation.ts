@@ -42,7 +42,6 @@ export const INVITATION = {
 
   greeting: {
     salutation: "Հարգելի",
-    defaultGuest: "հյուր",
   },
 
   labels: {

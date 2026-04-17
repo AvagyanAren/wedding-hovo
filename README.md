@@ -1,6 +1,6 @@
-# Wedding Invitation · Անի և Հովո
+# Wedding Invitation · Հովհաննես և Մարիա
 
-Mobile-first wedding invitation landing page built with **Next.js 14**, **TypeScript** and **Tailwind CSS**. All content is in Armenian and every guest gets the same link with a per-guest query param.
+Mobile-first wedding invitation landing page built with **Next.js 14**, **TypeScript** and **Tailwind CSS**. All content is in Armenian. Each guest gets their own clean path-based URL (`/:id`) backed by a single `data/guests.json` file - no backend, no rebuild between guests beyond updating the JSON.
 
 ## Getting started
 
@@ -19,56 +19,69 @@ Other scripts:
 
 ## Per-guest links
 
-The page reads query parameters, so you can send each guest the same URL with their personal data appended. No backend, no rebuild.
+Guests are stored in [`data/guests.json`](data/guests.json) as an array of `{ id, name, table }` entries:
 
-| Param   | Purpose                            | Example                  |
-| ------- | ---------------------------------- | ------------------------ |
-| `guest` | Guest name shown in the greeting   | `?guest=Նարեկ`           |
-| `table` | Table number (hides section if missing) | `?table=6`          |
-| `zone`  | Optional hall / zone label         | `?zone=Գլխավոր%20սրահ`   |
-
-Full example:
-
-```
-http://localhost:3000/?guest=%D5%86%D5%A1%D6%80%D5%A5%D5%AF&table=6
+```json
+[
+  { "id": "Ara_5", "name": "Արա", "table": "5" },
+  { "id": "Ani_Tigran_4", "name": "Անի և Տիգրան", "table": "4" }
+]
 ```
 
-Armenian characters in URLs must be URL-encoded. In JavaScript:
+Each entry is reachable at `https://your-domain.com/<id>`, for example:
+
+- `https://your-domain.com/Ara_5` → `Հարգելի Արա`, table `5`
+- `https://your-domain.com/Ani_Tigran_4` → `Հարգելի Անի և Տիգրան`, table `4`
+
+### URL behavior
+
+| URL              | Result                                                     |
+| ---------------- | ---------------------------------------------------------- |
+| `/Ara_5`         | Renders the invitation for that guest                      |
+| `/Ani_Tigran_4`  | Renders the invitation for that guest                      |
+| `/Unknown_9`     | Unknown id → redirected to `/` → 404                       |
+| `/`              | 404 (no shared landing page)                               |
+
+### Id conventions
+
+- Ids should be ASCII with underscores (e.g. `Ara_5`, `Ani_Tigran_4`) so links stay clean and do not need percent-encoding.
+- Typically the id combines a transliterated name with the table number.
+- Uniqueness is the editor's responsibility; a dev-only console warning flags duplicates on import.
+
+### Generating link list
+
+A tiny one-liner to print every guest link once you have a domain:
 
 ```js
-const url = `https://your-domain.com/?guest=${encodeURIComponent("Նարեկ")}&table=6`;
+const guests = require("./data/guests.json");
+const base = "https://your-domain.com";
+for (const g of guests) console.log(`${g.name}\t${base}/${g.id}`);
 ```
-
-If `guest` is missing, the greeting falls back to `հարգելի հյուր`. If `table` is missing, the whole table card is hidden.
 
 ## Editing the content
 
-All editable text lives in one file: [`lib/invitation.ts`](lib/invitation.ts).
-
-Update couple names, date, venue, address, schedule, dress code, RSVP details, etc. there - everything else derives from this config.
+- **Guest list:** [`data/guests.json`](data/guests.json)
+- **All other copy** (couple names, date, venue, events, labels): [`lib/invitation.ts`](lib/invitation.ts)
 
 ## Structure
 
 ```
 app/
-  layout.tsx      # fonts, metadata, <html lang="hy">
-  page.tsx        # reads ?guest / ?table / ?zone and composes sections
-  globals.css     # Tailwind + CSS vars + small animation
+  layout.tsx       # fonts, metadata, <html lang="hy">
+  page.tsx         # root "/" → notFound()
+  not-found.tsx    # themed 404 screen
+  [id]/page.tsx    # guest route: looks up id in guests.json
+  globals.css      # Tailwind + CSS vars + small animation
 components/
-  Hero.tsx
-  Greeting.tsx
-  Countdown.tsx   # client component
-  Details.tsx
-  Schedule.tsx
-  TableCard.tsx
-  DressCode.tsx
-  Rsvp.tsx
-  Footer.tsx
-  Divider.tsx
+  InvitationView.tsx  # presentational invitation (name + table)
+  TableCard.tsx       # guest + table ticket
+data/
+  guests.json         # source of truth for per-guest pages
 lib/
-  invitation.ts   # single source of truth for all copy
+  invitation.ts       # static copy (couple, date, venue, events)
+  guests.ts           # typed loader + findGuest(id) helper
 ```
 
 ## Design
 
-Elegant minimal: ivory background, warm beige accents, sage labels, subtle gold dividers. Serif display type (`Cormorant Garamond` + `Noto Serif Armenian`) paired with `Noto Sans Armenian` for body copy. Everything is mobile-first and scales up cleanly to desktop.
+Elegant minimal with a soft sage watercolor feel: muted green background, stone neutrals, a touch of olive. Serif display type (`Cormorant Garamond` + `Noto Serif Armenian`) paired with `Noto Sans Armenian` for body copy, and `Great Vibes` for the script ampersand. The layout is a single non-scrolling screen on both mobile and desktop, centered on the guest's table number.
