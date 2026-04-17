@@ -1,7 +1,7 @@
 export type EventEntry = {
   time: string;
   title: string;
-  city?: string;
+  address?: string;
 };
 
 export const INVITATION = {
@@ -24,14 +24,13 @@ export const INVITATION = {
 
   events: [
     {
-      time: "16:00",
-      title: "Սուրբ Գայանե Եկեղեցի",
-      city: "Էջմիածին",
+      time: "15:30",
+      title: "ՍՈՒՐԲ ԳԱՅԱՆԵ ԵԿԵՂԵՑԻ",
     },
     {
       time: "18:00",
-      title: "Լիաննա Գարդեն Հոլլ",
-      city: "Երևան",
+      title: "ԼԻԱՆՆԱ ԳԱՐԴԵՆ ՀՈԼԼ",
+      address: "Փարաքար, Երիտասարդության 34",
     },
   ] as EventEntry[],
 
@@ -42,7 +41,8 @@ export const INVITATION = {
   },
 
   greeting: {
-    defaultGuest: "հարգելի հյուր",
+    salutation: "Հարգելի",
+    defaultGuest: "հյուր",
   },
 
   labels: {

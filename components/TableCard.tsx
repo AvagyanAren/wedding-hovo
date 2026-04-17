@@ -14,7 +14,7 @@ export function TableCard({
 
   if (!hasTable && !hasGuest) return null;
 
-  const { labels } = INVITATION;
+  const { labels, greeting } = INVITATION;
 
   return (
     <div className="w-full max-w-sm">
@@ -29,8 +29,9 @@ export function TableCard({
         />
 
         {hasGuest ? (
-          <div className="font-serif text-3xl italic text-olive sm:text-4xl">
-            {guest}
+          <div className="font-serif text-2xl italic text-olive sm:text-3xl">
+            {greeting.salutation}{" "}
+            <span className="text-charcoal">{guest}</span>
           </div>
         ) : null}
 

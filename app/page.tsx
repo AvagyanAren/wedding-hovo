@@ -34,31 +34,33 @@ export default function Page({
 
   return (
     <main className="watercolor-bg relative flex h-[100svh] w-screen flex-col overflow-hidden px-6 sm:px-8">
-      <header className="flex flex-col items-center pt-6 sm:pt-10">
-        <p className="font-display text-lg font-light tracking-[0.25em] text-olive sm:text-xl md:text-2xl">
-          {dateDisplay.short}
-        </p>
-      </header>
-
-      <section className="flex flex-1 items-center justify-center py-4">
+      <section className="flex flex-1 items-center justify-center pt-10 sm:pt-12">
         <TableCard guest={guest} table={table} zone={zone} />
       </section>
 
       <footer className="flex flex-col items-center gap-4 pb-5 sm:gap-5 sm:pb-7">
-        <div className="flex flex-col items-center gap-1 text-[10px] uppercase tracking-widest2 text-stone sm:gap-1.5 sm:text-xs">
+        <div className="flex flex-col items-center gap-1.5 text-[10px] uppercase tracking-widest2 text-stone sm:gap-2 sm:text-xs">
           {events.map((ev) => (
             <div
               key={ev.time}
-              className="flex flex-wrap items-baseline justify-center gap-x-2"
+              className="flex flex-col items-center gap-0.5 text-center sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-2"
             >
-              <span className="font-semibold text-charcoal">{ev.time}</span>
-              <span>{ev.title}</span>
-              {ev.city ? (
-                <span className="text-stone/80">· {ev.city}</span>
+              <div className="flex items-baseline justify-center gap-x-2">
+                <span className="font-semibold text-charcoal">{ev.time}</span>
+                <span>{ev.title}</span>
+              </div>
+              {ev.address ? (
+                <span className="text-stone/70 normal-case tracking-normal sm:uppercase sm:tracking-widest2 sm:text-stone/80">
+                  {ev.address}
+                </span>
               ) : null}
             </div>
           ))}
         </div>
+
+        <p className="font-display text-lg font-light tracking-[0.25em] text-olive sm:text-xl md:text-2xl">
+          {dateDisplay.short}
+        </p>
 
         <div
           aria-hidden="true"
