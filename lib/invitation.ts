@@ -5,8 +5,6 @@ export type EventEntry = {
 };
 
 export const INVITATION = {
-  intro: "Մեծ ուրախությամբ հրավիրում ենք Ձեզ մեր հարսանիքին",
-
   couple: {
     groom: { first: "Հովհաննես", last: "Կարապետյան" },
     bride: { first: "Մարիա", last: "Մինասյան" },
@@ -44,27 +42,11 @@ export const INVITATION = {
   },
 
   greeting: {
-    salutation: "Սիրելի",
-    body: "Մեծ ուրախությամբ հրավիրում ենք Ձեզ մեր հարսանիքին՝ կիսելու մեզ հետ այս առանձնահատուկ և անմոռանալի օրը։",
     defaultGuest: "հարգելի հյուր",
   },
 
-  footer: {
-    signOff: "Սիրով,",
-    monogram: "Հ · Մ",
-  },
-
   labels: {
-    kicker: "ՀԱՐՍԱՆԻՔ",
     table: "ՁԵՐ ՍԵՂԱՆԸ",
-    forGuest: "ՀՐԱՎԻՐՎԱԾ Է",
-    countdown: {
-      days: "օր",
-      hours: "ժամ",
-      minutes: "րոպե",
-      seconds: "վայրկյան",
-    },
-    viewOnMap: "Քարտեզում տեսնել",
     tablePrefix: "Սեղան",
     tableNoun: "№",
   },
