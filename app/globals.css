@@ -3,11 +3,12 @@
 @tailwind utilities;
 
 :root {
-  --bg: #FAF7F2;
-  --fg: #2E2A26;
-  --muted: #6E665C;
-  --gold: #B8955A;
-  --beige: #E8DFD1;
+  --bg: #F0F3ED;
+  --fg: #3E4338;
+  --muted: #6B6E66;
+  --olive: #8C9A6E;
+  --sage: #A9B79D;
+  --sage-soft: #D8E0CF;
 }
 
 html,
@@ -20,8 +21,17 @@ body {
 }
 
 ::selection {
-  background: #E8DFD1;
-  color: #2E2A26;
+  background: #D8E0CF;
+  color: #3E4338;
+}
+
+.watercolor-bg {
+  background-color: #F0F3ED;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(169, 183, 157, 0.28), transparent 38%),
+    radial-gradient(circle at 82% 78%, rgba(169, 183, 157, 0.22), transparent 42%),
+    radial-gradient(circle at 65% 22%, rgba(216, 224, 207, 0.5), transparent 45%),
+    radial-gradient(circle at 25% 85%, rgba(233, 200, 204, 0.22), transparent 40%);
 }
 
 @keyframes fadeUp {
@@ -36,5 +46,5 @@ body {
 }
 
 .fade-up {
-  animation: fadeUp 0.9s ease-out both;
+  animation: fadeUp 1s ease-out both;
 }

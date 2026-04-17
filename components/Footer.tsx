@@ -8,10 +8,10 @@ export function Footer() {
       <p className="font-serif text-lg text-charcoal sm:text-xl">
         {footer.signOff}
       </p>
-      <p className="mt-2 font-display text-2xl italic text-gold sm:text-3xl">
+      <p className="mt-2 font-serif text-2xl italic text-olive sm:text-3xl">
         {couple.combined}
       </p>
-      <p className="mt-6 text-xs tracking-widest2 text-sage">
+      <p className="mt-6 text-xs uppercase tracking-widest2 text-stone">
         {footer.monogram}
       </p>
     </footer>

@@ -9,10 +9,10 @@ export function Greeting({ guest }: { guest: string }) {
       <div className="mx-auto max-w-2xl">
         <p className="font-serif text-xl text-charcoal sm:text-2xl">
           {greeting.salutation}{" "}
-          <span className="font-display italic text-gold">{guest}</span>,
+          <span className="font-serif italic text-olive">{guest}</span>,
         </p>
 
-        <p className="mt-6 font-sans text-base leading-relaxed text-charcoal/80 sm:text-lg">
+        <p className="mt-6 font-sans text-base leading-relaxed text-stone sm:text-lg">
           {greeting.body}
         </p>
 

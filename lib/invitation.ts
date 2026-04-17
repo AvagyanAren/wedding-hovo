@@ -1,8 +1,16 @@
+export type EventEntry = {
+  time: string;
+  title: string;
+  city?: string;
+};
+
 export const INVITATION = {
+  intro: "Մեծ ուրախությամբ հրավիրում ենք Ձեզ մեր հարսանիքին",
+
   couple: {
-    groom: "Հովհաննես",
-    bride: "Մարիյա",
-    combined: "Հովհաննես և Մարիյա",
+    groom: { first: "Հովհաննես", last: "Կարապետյան" },
+    bride: { first: "Մարիա", last: "Մինասյան" },
+    combined: "Հովհաննես և Մարիա",
   },
 
   eventDateISO: "2026-04-18T18:00:00+04:00",
@@ -10,11 +18,24 @@ export const INVITATION = {
   dateDisplay: {
     dayName: "Շաբաթ",
     long: "18 ապրիլի 2026",
-    short: "18 · 04 · 2026",
+    short: "18.04.2026",
     time: "18:00",
   },
 
   city: "Երևան, Հայաստան",
+
+  events: [
+    {
+      time: "16:00",
+      title: "Սուրբ Գայանե Եկեղեցի",
+      city: "Էջմիածին",
+    },
+    {
+      time: "18:00",
+      title: "Լիաննա Գարդեն Հոլլ",
+      city: "Երևան",
+    },
+  ] as EventEntry[],
 
   venue: {
     name: "Լիաննա Գարդեն Հոլլ",
@@ -35,8 +56,6 @@ export const INVITATION = {
 
   labels: {
     kicker: "ՀԱՐՍԱՆԻՔ",
-    when: "ԵՐԲ",
-    where: "ՈՐՏԵՂ",
     table: "ՁԵՐ ՍԵՂԱՆԸ",
     forGuest: "ՀՐԱՎԻՐՎԱԾ Է",
     countdown: {

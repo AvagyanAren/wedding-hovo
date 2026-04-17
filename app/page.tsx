@@ -2,7 +2,6 @@ import { INVITATION } from "@/lib/invitation";
 import { Hero } from "@/components/Hero";
 import { Greeting } from "@/components/Greeting";
 import { Countdown } from "@/components/Countdown";
-import { Details } from "@/components/Details";
 import { TableCard } from "@/components/TableCard";
 import { Footer } from "@/components/Footer";
 
@@ -27,7 +26,6 @@ export default function Page({
       <Hero />
       <Greeting guest={guest} />
       <Countdown />
-      <Details />
       <TableCard guest={guest} table={table} zone={zone} />
       <Footer />
     </main>

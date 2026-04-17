@@ -39,12 +39,12 @@ export function Countdown() {
         {items.map((item) => (
           <div key={item.label} className="flex flex-col items-center">
             <span
-              className="font-display text-4xl font-light text-charcoal sm:text-5xl md:text-6xl"
+              className="font-serif text-4xl font-light text-charcoal sm:text-5xl md:text-6xl"
               suppressHydrationWarning
             >
               {String(item.value).padStart(2, "0")}
             </span>
-            <span className="mt-2 text-[10px] tracking-widest2 text-sage sm:text-xs">
+            <span className="mt-2 text-[10px] uppercase tracking-widest2 text-stone sm:text-xs">
               {item.label}
             </span>
           </div>
