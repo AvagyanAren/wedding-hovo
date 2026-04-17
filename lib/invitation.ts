@@ -59,6 +59,7 @@ export const INVITATION = {
     where: "ՈՐՏԵՂ",
     schedule: "ՕՐՎԱ ԸՆԹԱՑՔԸ",
     table: "ՁԵՐ ՍԵՂԱՆԸ",
+    forGuest: "ՀՐԱՎԻՐՎԱԾ Է",
     dressCode: "ՀԱԳՈՒՍՏԻ ՈՃԸ",
     rsvp: "ՀԱՍՏԱՏՈՒՄ",
     countdown: {

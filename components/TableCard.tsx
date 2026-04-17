@@ -1,13 +1,18 @@
 import { INVITATION } from "@/lib/invitation";
 
 export function TableCard({
+  guest,
   table,
   zone,
 }: {
+  guest?: string;
   table?: string | number;
   zone?: string;
 }) {
-  if (table === undefined || table === null || table === "") return null;
+  const hasTable = !(table === undefined || table === null || table === "");
+  const hasGuest = !!(guest && guest.trim().length > 0);
+
+  if (!hasTable && !hasGuest) return null;
 
   const { labels } = INVITATION;
 
@@ -24,23 +29,45 @@ export function TableCard({
             className="absolute bottom-0 left-1/2 h-3 w-3 -translate-x-1/2 translate-y-1/2 rotate-45 border border-gold/40 bg-ivory"
           />
 
-          <span className="text-xs tracking-widest2 text-sage sm:text-sm">
-            {labels.table}
-          </span>
+          {hasGuest ? (
+            <>
+              <span className="text-xs tracking-widest2 text-sage sm:text-sm">
+                {labels.forGuest}
+              </span>
+              <div className="mt-3 font-display text-3xl italic text-gold sm:text-4xl">
+                {guest}
+              </div>
+            </>
+          ) : null}
 
-          <div className="mt-6 font-serif text-7xl font-light leading-none text-charcoal sm:text-8xl">
-            {table}
-          </div>
+          {hasTable ? (
+            <>
+              {hasGuest ? (
+                <div
+                  aria-hidden="true"
+                  className="mx-auto mt-6 h-px w-16 bg-gold/30"
+                />
+              ) : null}
 
-          <div className="mt-6 font-display text-lg tracking-[0.25em] text-gold sm:text-xl">
-            {labels.tablePrefix} {labels.tableNoun}
-            {table}
-          </div>
+              <span className="mt-6 block text-xs tracking-widest2 text-sage sm:text-sm">
+                {labels.table}
+              </span>
 
-          {zone ? (
-            <div className="mt-4 text-sm tracking-widest2 text-charcoal/60">
-              {zone}
-            </div>
+              <div className="mt-4 font-serif text-7xl font-light leading-none text-charcoal sm:text-8xl">
+                {table}
+              </div>
+
+              <div className="mt-4 font-display text-lg tracking-[0.25em] text-gold sm:text-xl">
+                {labels.tablePrefix} {labels.tableNoun}
+                {table}
+              </div>
+
+              {zone ? (
+                <div className="mt-4 text-sm tracking-widest2 text-charcoal/60">
+                  {zone}
+                </div>
+              ) : null}
+            </>
           ) : null}
         </div>
       </div>

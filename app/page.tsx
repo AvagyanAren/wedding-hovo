@@ -32,7 +32,7 @@ export default function Page({
       <Countdown />
       <Details />
       <Schedule />
-      <TableCard table={table} zone={zone} />
+      <TableCard guest={guest} table={table} zone={zone} />
       <DressCode />
       <Rsvp guest={guest} />
       <Footer />
