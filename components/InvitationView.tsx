@@ -36,14 +36,13 @@ export function InvitationView({
           {events.map((ev) => (
             <div
               key={ev.time}
-              className="flex flex-col items-center gap-0.5 text-center sm:flex-row sm:flex-wrap sm:justify-center sm:gap-x-2"
+              className="flex flex-wrap items-baseline justify-center gap-x-2 text-center"
             >
-              <div className="flex items-baseline justify-center gap-x-2">
-                <span className="font-semibold text-charcoal">{ev.time}</span>
-                <span>{ev.title}</span>
-              </div>
+              <span className="font-semibold text-charcoal">{ev.time}</span>
+              <span>{ev.title}</span>
               {ev.address ? (
                 <span className="text-stone/70 normal-case tracking-normal sm:uppercase sm:tracking-widest2 sm:text-stone/80">
+                  {" - "}
                   {ev.address}
                 </span>
               ) : null}

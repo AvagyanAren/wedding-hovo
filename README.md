@@ -17,6 +17,38 @@ Other scripts:
 - `npm run start` - run the production build
 - `npm run lint` - Next lint
 
+## Deployment
+
+### Vercel (or any host at the domain root)
+
+Use the default build. **Do not** set `BASE_PATH` or `STATIC_EXPORT`. CSS and scripts load from `/_next/...` as usual.
+
+### GitHub Pages (project site: `https://<user>.github.io/<repo>/`)
+
+The site is served under `/<repo-name>/`, but a plain Next build links assets to `/_next/...`, so those files **404** and the page looks like **unstyled HTML** (default serif, no colors). Set **`BASE_PATH`** to your repo name so links become `/<repo>/_next/...`. Use a **static export** for hosting on Pages.
+
+Example (replace `wedding-hovo` with your repository name):
+
+**PowerShell**
+
+```powershell
+$env:BASE_PATH = "/wedding-hovo"
+$env:STATIC_EXPORT = "true"
+npm run build
+```
+
+**bash**
+
+```bash
+BASE_PATH=/wedding-hovo STATIC_EXPORT=true npm run build
+```
+
+Upload the generated `out/` directory to GitHub Pages. Guest URLs look like `https://<user>.github.io/wedding-hovo/Ara_5`.
+
+### Troubleshooting: plain / unstyled page
+
+That almost always means **CSS/JS did not load** (check the Network tab for 404s on `/_next/static/...`). For a subdirectory host, configure **`BASE_PATH`** as above. For a root domain (Vercel, etc.), keep **`BASE_PATH` unset**.
+
 ## Per-guest links
 
 Guests are stored in [`data/guests.json`](data/guests.json) as an array of `{ id, name, table }` entries:

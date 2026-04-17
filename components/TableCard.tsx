@@ -29,9 +29,13 @@ export function TableCard({
         />
 
         {hasGuest ? (
-          <div className="font-serif text-2xl italic text-olive sm:text-3xl">
-            {greeting.salutation}{" "}
-            <span className="text-charcoal">{guest}</span>
+          <div className="flex flex-col items-center gap-1.5 sm:gap-2">
+            <div className="font-serif text-xl italic text-olive sm:text-2xl">
+              {greeting.salutation}
+            </div>
+            <div className="font-serif text-2xl font-normal leading-tight text-charcoal sm:text-3xl">
+              {guest}
+            </div>
           </div>
         ) : null}
 
@@ -44,7 +48,7 @@ export function TableCard({
 
         {hasTable ? (
           <>
-            <span className="text-[10px] uppercase tracking-widest2 text-stone sm:text-xs">
+            <span className="text-sm leading-snug text-stone sm:text-base">
               {labels.table}
             </span>
 
@@ -52,9 +56,8 @@ export function TableCard({
               {table}
             </div>
 
-            <div className="mt-3 font-display text-base tracking-[0.25em] text-olive sm:text-lg">
-              {labels.tablePrefix} {labels.tableNoun}
-              {table}
+            <div className="mt-4 max-w-[18rem] font-serif text-sm italic leading-relaxed text-olive sm:mt-5 sm:text-base">
+              {labels.tableClosing}
             </div>
 
             {zone ? (

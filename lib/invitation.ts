@@ -45,9 +45,8 @@ export const INVITATION = {
   },
 
   labels: {
-    table: "ՁԵՐ ՍԵՂԱՆԸ",
-    tablePrefix: "Սեղան",
-    tableNoun: "№",
+    table: "Ձեր սեղանն է՝",
+    tableClosing: "Մաղթում ենք հաճելի երեկո",
   },
 } as const;
 
