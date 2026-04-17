@@ -37,6 +37,7 @@ const script = Great_Vibes({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://wedding-h-m.vercel.app"),
   title: "Հովհաննես և Մարիա · Հարսանիք",
   description: "Հրավեր մեր հարսանիքին · 18 ապրիլի 2026",
 };

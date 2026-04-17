@@ -2,6 +2,8 @@
 
 Mobile-first wedding invitation landing page built with **Next.js 14**, **TypeScript** and **Tailwind CSS**. All content is in Armenian. Each guest gets their own clean path-based URL (`/:id`) backed by a single `data/guests.json` file - no backend, no rebuild between guests beyond updating the JSON.
 
+**Production:** [https://wedding-h-m.vercel.app/](https://wedding-h-m.vercel.app/)
+
 ## Getting started
 
 ```bash
@@ -22,6 +24,8 @@ Other scripts:
 ### Vercel (or any host at the domain root)
 
 Use the default build. **Do not** set `BASE_PATH` or `STATIC_EXPORT`. CSS and scripts load from `/_next/...` as usual.
+
+This project is deployed at **[https://wedding-h-m.vercel.app/](https://wedding-h-m.vercel.app/)** (production on `main`).
 
 ### GitHub Pages (project site: `https://<user>.github.io/<repo>/`)
 
@@ -55,28 +59,28 @@ Guests are stored in [`data/guests.json`](data/guests.json) as an array of `{ id
 
 ```json
 [
-  { "id": "Ara_5", "name": "Արա", "table": "5" },
-  { "id": "Ani_Tigran_4", "name": "Անի և Տիգրան", "table": "4" }
+  { "id": "narek_5", "name": "Նարեկ", "table": "5" },
+  { "id": "arkadi_marine_1", "name": "Արկադի և Մարինե", "table": "1" }
 ]
 ```
 
-Each entry is reachable at `https://your-domain.com/<id>`, for example:
+Each entry is reachable at `https://wedding-h-m.vercel.app/<id>`, for example:
 
-- `https://your-domain.com/Ara_5` → `Հարգելի Արա`, table `5`
-- `https://your-domain.com/Ani_Tigran_4` → `Հարգելի Անի և Տիգրան`, table `4`
+- `https://wedding-h-m.vercel.app/narek_5` → `Հարգելի Նարեկ`, table `5`
+- `https://wedding-h-m.vercel.app/arkadi_marine_1` → `Հարգելի Արկադի և Մարինե`, table `1`
 
 ### URL behavior
 
 | URL              | Result                                                     |
 | ---------------- | ---------------------------------------------------------- |
-| `/Ara_5`         | Renders the invitation for that guest                      |
-| `/Ani_Tigran_4`  | Renders the invitation for that guest                      |
-| `/Unknown_9`     | Unknown id → redirected to `/` → 404                       |
+| `/narek_5`       | Renders the invitation for that guest                      |
+| `/arkadi_marine_1` | Renders the invitation for that guest                    |
+| `/unknown_9`     | Unknown id → redirected to `/` → 404                       |
 | `/`              | 404 (no shared landing page)                               |
 
 ### Id conventions
 
-- Ids should be ASCII with underscores (e.g. `Ara_5`, `Ani_Tigran_4`) so links stay clean and do not need percent-encoding.
+- Ids should be lowercase ASCII with underscores (e.g. `narek_5`, `arkadi_marine_1`) so links stay clean and do not need percent-encoding.
 - Typically the id combines a transliterated name with the table number.
 - Uniqueness is the editor's responsibility; a dev-only console warning flags duplicates on import.
 
@@ -86,7 +90,7 @@ A tiny one-liner to print every guest link once you have a domain:
 
 ```js
 const guests = require("./data/guests.json");
-const base = "https://your-domain.com";
+const base = "https://wedding-h-m.vercel.app";
 for (const g of guests) console.log(`${g.name}\t${base}/${g.id}`);
 ```
 
