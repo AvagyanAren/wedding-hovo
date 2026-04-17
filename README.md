@@ -69,8 +69,6 @@ Each entry is reachable at `https://wedding-h-m.vercel.app/<id>`, for example:
 - `https://wedding-h-m.vercel.app/narek_5` → `Հարգելի Նարեկ`, table `5`
 - `https://wedding-h-m.vercel.app/arkadi_marine_1` → `Հարգելի Արկադի և Մարինե`, table `1`
 
-Hyphens are treated like underscores in the path, so `…/narek-5` and `…/narek_5` both work (canonical ids in JSON use `_`).
-
 ### URL behavior
 
 | URL              | Result                                                     |
@@ -82,7 +80,7 @@ Hyphens are treated like underscores in the path, so `…/narek-5` and `…/nare
 
 ### Id conventions
 
-- Ids should be lowercase ASCII with underscores (e.g. `narek_5`, `arkadi_marine_1`) so links stay clean and do not need percent-encoding. Guests may also open links with hyphens instead of underscores (`narek-5` → same as `narek_5`).
+- Ids should be lowercase ASCII with underscores (e.g. `narek_5`, `arkadi_marine_1`) so links stay clean and do not need percent-encoding.
 - Typically the id combines a transliterated name with the table number.
 - Uniqueness is the editor's responsibility; a dev-only console warning flags duplicates on import.
 
