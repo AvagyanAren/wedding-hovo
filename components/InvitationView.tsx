@@ -41,10 +41,25 @@ export function InvitationView({
               <span className="font-semibold text-charcoal">{ev.time}</span>
               <span>{ev.title}</span>
               {ev.address ? (
-                <span className="text-stone/70 normal-case tracking-normal sm:uppercase sm:tracking-widest2 sm:text-stone/80">
-                  {" - "}
-                  {ev.address}
-                </span>
+                <>
+                  <span className="text-stone/70 normal-case tracking-normal sm:uppercase sm:tracking-widest2 sm:text-stone/80">
+                    {" - "}
+                  </span>
+                  {ev.addressUrl ? (
+                    <a
+                      href={ev.addressUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[14px] font-normal normal-case tracking-normal text-orange-800 underline underline-offset-2 transition-colors hover:text-orange-900 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-sage/60 sm:text-[14px]"
+                    >
+                      {ev.address}
+                    </a>
+                  ) : (
+                    <span className="text-stone/70 normal-case tracking-normal sm:uppercase sm:tracking-widest2 sm:text-stone/80">
+                      {ev.address}
+                    </span>
+                  )}
+                </>
               ) : null}
             </div>
           ))}

@@ -2,6 +2,8 @@ export type EventEntry = {
   time: string;
   title: string;
   address?: string;
+  /** If set, `address` is shown as a link (e.g. maps directions). */
+  addressUrl?: string;
 };
 
 export const INVITATION = {
@@ -31,6 +33,8 @@ export const INVITATION = {
       time: "18:00",
       title: "ԼԻԱՆՆԱ ԳԱՐԴԵՆ ՀՈԼԼ",
       address: "Փարաքար, Երիտասարդության 34",
+      addressUrl:
+        "https://yandex.com/maps/org/75872747374/?ll=44.391408%2C40.164666&z=18",
     },
   ] as EventEntry[],
 
