@@ -22,6 +22,15 @@ if (process.env.NODE_ENV !== "production") {
   }
 }
 
+/** Hyphens in URLs are normalized to underscores so `narek-5` matches `narek_5` in JSON. */
+function normalizeIdForLookup(id: string): string {
+  return id.replace(/-/g, "_");
+}
+
 export function findGuest(id: string): Guest | undefined {
-  return GUESTS.find((g) => g.id === id);
+  const decoded = decodeURIComponent(id);
+  const normalized = normalizeIdForLookup(decoded);
+  return GUESTS.find(
+    (g) => g.id === decoded || g.id === normalized
+  );
 }
