@@ -28,6 +28,9 @@ export const INVITATION = {
     {
       time: "15:30",
       title: "ՍՈՒՐԲ ԳԱՅԱՆԵ ԵԿԵՂԵՑԻ",
+      address: "Էջմիածին",
+      addressUrl:
+        "https://yandex.com/maps/org/225773844967/?ll=44.294199%2C40.157293&z=17.64",
     },
     {
       time: "18:00",
