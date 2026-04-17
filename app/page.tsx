@@ -3,10 +3,7 @@ import { Hero } from "@/components/Hero";
 import { Greeting } from "@/components/Greeting";
 import { Countdown } from "@/components/Countdown";
 import { Details } from "@/components/Details";
-import { Schedule } from "@/components/Schedule";
 import { TableCard } from "@/components/TableCard";
-import { DressCode } from "@/components/DressCode";
-import { Rsvp } from "@/components/Rsvp";
 import { Footer } from "@/components/Footer";
 
 type SearchParams = {
@@ -31,10 +28,7 @@ export default function Page({
       <Greeting guest={guest} />
       <Countdown />
       <Details />
-      <Schedule />
       <TableCard guest={guest} table={table} zone={zone} />
-      <DressCode />
-      <Rsvp guest={guest} />
       <Footer />
     </main>
   );

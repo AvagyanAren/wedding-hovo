@@ -1,30 +1,25 @@
-export type ScheduleItem = {
-  time: string;
-  label: string;
-};
-
 export const INVITATION = {
   couple: {
-    bride: "Անի",
-    groom: "Հովո",
-    combined: "Անի և Հովո",
+    groom: "Հովհաննես",
+    bride: "Մարիյա",
+    combined: "Հովհաննես և Մարիյա",
   },
 
-  eventDateISO: "2026-08-15T17:00:00+04:00",
+  eventDateISO: "2026-04-18T18:00:00+04:00",
 
   dateDisplay: {
     dayName: "Շաբաթ",
-    long: "15 օգոստոսի 2026",
-    short: "15 · 08 · 2026",
-    time: "17:00",
+    long: "18 ապրիլի 2026",
+    short: "18 · 04 · 2026",
+    time: "18:00",
   },
 
   city: "Երևան, Հայաստան",
 
   venue: {
-    name: "Ռեստորանային համալիր «Արարատ Հոլլ»",
-    address: "Հանրապետության փող. 1, Երևան",
-    mapUrl: "https://maps.google.com/?q=Ararat+Hall+Yerevan",
+    name: "Լիաննա Գարդեն Հոլլ",
+    address: "Երևան, Հայաստան",
+    mapUrl: "https://maps.google.com/?q=Lianna+Garden+Hall+Yerevan",
   },
 
   greeting: {
@@ -33,35 +28,17 @@ export const INVITATION = {
     defaultGuest: "հարգելի հյուր",
   },
 
-  schedule: [
-    { time: "16:30", label: "Հյուրերի ընդունում" },
-    { time: "17:00", label: "Պսակադրություն" },
-    { time: "18:30", label: "Ընթրիք" },
-    { time: "21:00", label: "Պար և երաժշտություն" },
-  ] as ScheduleItem[],
-
-  dressCode: "Հարմարավետ և էլեգանտ · նախընտրելի՝ բնական և հանգիստ երանգներ",
-
-  rsvp: {
-    deadline: "1 օգոստոսի 2026",
-    email: "wedding@example.com",
-    phone: "+374 00 000 000",
-  },
-
   footer: {
     signOff: "Սիրով,",
-    monogram: "Ա · Հ",
+    monogram: "Հ · Մ",
   },
 
   labels: {
     kicker: "ՀԱՐՍԱՆԻՔ",
     when: "ԵՐԲ",
     where: "ՈՐՏԵՂ",
-    schedule: "ՕՐՎԱ ԸՆԹԱՑՔԸ",
     table: "ՁԵՐ ՍԵՂԱՆԸ",
     forGuest: "ՀՐԱՎԻՐՎԱԾ Է",
-    dressCode: "ՀԱԳՈՒՍՏԻ ՈՃԸ",
-    rsvp: "ՀԱՍՏԱՏՈՒՄ",
     countdown: {
       days: "օր",
       hours: "ժամ",
@@ -69,8 +46,6 @@ export const INVITATION = {
       seconds: "վայրկյան",
     },
     viewOnMap: "Քարտեզում տեսնել",
-    confirmByEmail: "Հաստատել մասնակցությունը",
-    rsvpHelp: "Խնդրում ենք հաստատել մինչև",
     tablePrefix: "Սեղան",
     tableNoun: "№",
   },

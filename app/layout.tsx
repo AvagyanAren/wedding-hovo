@@ -24,8 +24,8 @@ const sans = Noto_Sans_Armenian({
 });
 
 export const metadata: Metadata = {
-  title: "Անի և Հովո · Հարսանիք",
-  description: "Հրավեր մեր հարսանիքին · 15 օգոստոսի 2026",
+  title: "Հովհաննես և Մարիյա · Հարսանիք",
+  description: "Հրավեր մեր հարսանիքին · 18 ապրիլի 2026",
 };
 
 export const viewport: Viewport = {

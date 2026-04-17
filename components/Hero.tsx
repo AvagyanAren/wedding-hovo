@@ -23,9 +23,9 @@ export function Hero() {
         <Divider className="mt-6" />
 
         <h1 className="mt-8 font-serif text-5xl font-normal leading-[1.05] text-charcoal sm:text-6xl md:text-7xl lg:text-[88px]">
-          <span className="block">{couple.bride}</span>
-          <span className="my-1 block font-display italic text-gold sm:my-2">և</span>
           <span className="block">{couple.groom}</span>
+          <span className="my-1 block font-display italic text-gold sm:my-2">և</span>
+          <span className="block">{couple.bride}</span>
         </h1>
 
         <Divider className="mt-10" />
